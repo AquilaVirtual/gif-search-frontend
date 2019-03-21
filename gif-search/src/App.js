@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+
+import GifList from "./components/GifList" 
 import "./App.css";
 
 //No need to hide API key, because it is a public key
@@ -19,9 +21,12 @@ class App extends Component {
   fetchGifs(searchTerm) {
     axios
       .get(
-        `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${API_KEY}&limit=100`
+        `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${API_KEY}&limit=25`
       )
       .then(response => {
+        this.setState({
+          gifs: response.data
+        })
         console.log("Getting Gifs!", response);
       })
       .catch(err => {
@@ -29,7 +34,18 @@ class App extends Component {
       });
   }
   render() {
-    return <div className="App" />;
+    if(!this.state.gifs.data) {
+      return null
+    } else {
+      return (
+        <div className="App">          
+            <GifList gifs={this.state.gifs.data}
+            onGifSelect={selectedGif => this.openModal(selectedGif) }
+            />
+        </div>
+      );
+    }    
+  
   }
 }
 
