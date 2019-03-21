@@ -4,7 +4,7 @@ import GifItem from "./GifItem";
 const GifList = props => {
   const gifList = props.gifs.map((gif, i) => (
     <div>
-      <GifItem gif={gif} key={gif.id} onGifSelect={props.onGifSelect} />
+      <GifItem gif={gif} key={gif.id} onGifClick={props.onGifClick} />
     </div>
   ));
   return <div className="gif-list">{gifList}</div>;
