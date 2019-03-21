@@ -12,6 +12,7 @@ const GifModal = (props) => {
       onRequestClose={ () => props.onRequestClose() }>
       <div className="gif-modal">
         <img src={ props.clickedGif.images.original.url} alt= {props.clickedGif.slug } />
+        <h3>Title: { props.clickedGif.title }</h3>
         <p><strong>Source:</strong> <a href={ props.clickedGif.source }>{ props.clickedGif.source }</a></p>
         <p><strong>Rating:</strong> { props.clickedGif.rating }</p>
 
