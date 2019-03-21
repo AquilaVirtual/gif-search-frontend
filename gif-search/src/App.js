@@ -39,7 +39,7 @@ class App extends Component {
       return null
     } else {
       return (
-        <div className="App">     
+        <div className="app">     
         <SearchBar onChange={(searchTerm) => this.fetchGifs(searchTerm)} />     
             <GifList gifs={this.state.gifs.data}
             onGifSelect={selectedGif => this.openModal(selectedGif) }
