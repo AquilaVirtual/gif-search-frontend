@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import GifList from "./components/GifList" 
+import SearchBar from "./components/SearchBar" 
 import "./App.css";
 
 //No need to hide API key, because it is a public key
@@ -10,7 +11,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      gifs: {}
+      gifs: []
     };
   }
 
@@ -18,10 +19,10 @@ class App extends Component {
     this.fetchGifs("jim carey");
   }
 
-  fetchGifs(searchTerm) {
+  fetchGifs = (searchTerm) => {
     axios
       .get(
-        `http://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${API_KEY}&limit=25`
+        `http://api.giphy.com/v1/gifs/search?q=${searchTerm.replace(/\s/g, '+')}&api_key=${API_KEY}&limit=25`
       )
       .then(response => {
         this.setState({
@@ -38,7 +39,8 @@ class App extends Component {
       return null
     } else {
       return (
-        <div className="App">          
+        <div className="App">     
+        <SearchBar onChange={(searchTerm) => this.fetchGifs(searchTerm)} />     
             <GifList gifs={this.state.gifs.data}
             onGifSelect={selectedGif => this.openModal(selectedGif) }
             />
