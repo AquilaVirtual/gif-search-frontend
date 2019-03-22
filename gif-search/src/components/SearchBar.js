@@ -1,15 +1,8 @@
 import React from 'react'
 
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      searchTerm: ''
-    }
-  }
+class SearchBar extends React.Component {  
   handleSearchChange(searchTerm) {
-    this.setState({ searchTerm })
-    this.props.onChange(searchTerm)
+    this.props.onSearchChange(searchTerm)
   }
 
   render() {
@@ -17,8 +10,7 @@ class SearchBar extends React.Component {
         <div className="search">          
             <input
               type="text"
-              placeholder="Enter text to search for gifs!"
-              value={this.state.searchTerm}
+              placeholder="Enter text to search for gifs!"              
               onChange={(event) => this.handleSearchChange(event.target.value)}
             />          
         </div>

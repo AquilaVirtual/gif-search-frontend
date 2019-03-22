@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-
-import GifsTemp from "../components/GifsTemp";
+import SearchBar from "../components/SearchBar";
+import * as Actions from "../actions"
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import "../styles/App.css";
 
 //No need to hide API key; this is a public key
@@ -12,11 +12,10 @@ class App extends Component {
   constructor() {
     super();    
   }
-  render() {
-    
+  render() {    
       return (
-        <div className="app">
-          <GifsTemp gifs={this.props.gifs} />
+        <div className="app">  
+          <SearchBar onSearchChange={this.props.actions.searchGifs} />
         </div>
       );
     }
@@ -27,4 +26,10 @@ class App extends Component {
       }
     }
 
-export default connect(mapStateToProps)(App);
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      actions: bindActionCreators(Actions, dispatch)
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
