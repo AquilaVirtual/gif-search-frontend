@@ -9,6 +9,10 @@ import "../styles/App.css";
 
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.actions.searchGifs("jim carey");
+  }
   
   render() {    
       return (

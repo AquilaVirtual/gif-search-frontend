@@ -4,7 +4,6 @@ class SearchBar extends React.Component {
   handleSearchChange(searchTerm) {
     this.props.onSearchChange(searchTerm)
   }
-
   render() {
     return (      
         <div className="search">          
