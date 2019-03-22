@@ -4,25 +4,24 @@ import SearchBar from "../components/SearchBar";
 import * as Actions from "../actions"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import GifList from "../components/GifList";
 import "../styles/App.css";
 
-//No need to hide API key; this is a public key
-const API_KEY = "dc6zaTOxFJmzC";
+
 class App extends Component {
-  constructor() {
-    super();    
-  }
+  
   render() {    
       return (
         <div className="app">  
           <SearchBar onSearchChange={this.props.actions.searchGifs} />
+          <GifList gifs={this.props.gifs} />
         </div>
       );
     }
   }
   const mapStateToProps = (state) => {
     return {
-        gifs: state.gifs
+        gifs: state.gifs.data
       }
     }
 
