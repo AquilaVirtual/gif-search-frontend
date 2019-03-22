@@ -4,7 +4,7 @@ import axios from "axios";
 import GifList from "./components/GifList";
 import SearchBar from "./components/SearchBar";
 import GifModal from "./components/GifModal";
-import "./App.css";
+import "./styles/App.css";
 
 //No need to hide API key; this is a public key
 const API_KEY = "dc6zaTOxFJmzC";
