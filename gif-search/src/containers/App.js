@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import SearchBar from "../components/SearchBar";
 import * as Actions from "../actions"
 import { connect } from "react-redux";
@@ -19,6 +18,7 @@ class App extends Component {
         <div className="app">  
           <SearchBar onSearchChange={this.props.actions.searchGifs} />
           <GifList gifs={this.props.gifs} />
+          
         </div>
       );
     }
