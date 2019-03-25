@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import SearchBar from "../components/SearchBar";
 import * as Actions from "../actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import SearchBar from "../components/SearchBar";
 import GifList from "../components/GifList";
 import GifModal from "../components/GifModal";
 import "../styles/App.css";
 
-class App extends Component {
+class Home extends Component {
   componentDidMount() {
     this.props.actions.searchGifs("jim carey");
   }
@@ -46,4 +46,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(Home);
