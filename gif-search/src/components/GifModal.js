@@ -6,8 +6,11 @@ const GifModal = (props) => {
     if (!props.clickedGif) {
         return <div></div>;
       }
-  return (
-    <Modal
+      console.log("Clicked Gif in modal component", props.clickedGif)
+      console.log("Is modal open?", props.modalIsOpen)      
+      return (
+        <Modal
+        ariaHideApp={false}
       isOpen={ props.modalIsOpen }
       onRequestClose={ () => props.onRequestClose() }>
       <div className="gif-modal">

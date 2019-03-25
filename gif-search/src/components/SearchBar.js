@@ -12,8 +12,7 @@ class SearchBar extends React.Component {
               placeholder="Enter text to search for gifs!"              
               onChange={(event) => this.handleSearchChange(event.target.value)}
             />          
-        </div>
-      
+        </div>      
     )
   }
 }

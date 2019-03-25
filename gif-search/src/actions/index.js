@@ -18,6 +18,7 @@ export function searchGifs(searchTerm = null) {
 }
 
 export function openModal(gif) {
+  console.log("Clicked Gif in Modal action", gif)
   return {
     type: OPEN_MODAL,
     gif

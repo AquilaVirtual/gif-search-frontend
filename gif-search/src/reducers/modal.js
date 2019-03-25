@@ -2,21 +2,21 @@ import {OPEN_MODAL, CLOSE_MODAL } from "../actions";
 
 const initialState = {
     clickedGif: null,
-    modalIsopen: false
+    modalIsOpen: false
 }
-
 export  default function ModalReducer(state = initialState, action) {
+    console.log("State in Modal reducer", state)
     switch(action.type) {
         case OPEN_MODAL:
         return {
             ...state, 
-            modalIsopen: true,
+            modalIsOpen: true,
             clickedGif: action.gif.clickedGif
         }
         case CLOSE_MODAL:
         return {
             ...state,
-            modalIsopen: false,
+            modalIsOpen: false,
             clickedGif: null
         }
         default: 
