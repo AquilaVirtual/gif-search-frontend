@@ -12,10 +12,9 @@ import Favorites from '../containers/Favorites';
 export default class App extends React.Component {
     render() {
         return (
-            <ConnectedRouter history={history}>
+
                 <div>
                     <Header />
-
                     <div className="container">
                         <Route exact path="/" component={ Home }/>
                         <Route path="/signup" component={ Signup } />
@@ -23,7 +22,7 @@ export default class App extends React.Component {
                         <Route path="/favorites" component={ Favorites } />
                     </div>
                 </div>
-            </ConnectedRouter>
+            
         );
     }
 }

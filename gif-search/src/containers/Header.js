@@ -8,14 +8,14 @@ class Header extends React.Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link href="/" className="navbar-brand">ReactGifs</Link>
+            <Link to="/" className="navbar-brand">ReactGifs</Link>
           </div>
            <ul className="nav navbar-nav navbar-right">
              <li className="nav-item">
-               <Link className="nav-link" href="/login">Login</Link>
+               <Link className="nav-link" to="/login">Login</Link>
              </li>
              <li className="nav-item">
-               <Link className="nav-link" href="/signup">Sign Up</Link>
+               <Link className="nav-link" to="/signup">Sign Up</Link>
              </li>
            </ul>
         </div>
