@@ -6,6 +6,9 @@ const API_KEY = '&api_key=dc6zaTOxFJmzC';
 export const OPEN_MODAL = "OPEN_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 export const  SEARCH_GIFS = "SEARCH_GIFS";
+const SET_LOGIN_PENDING = 'SET_LOGIN_PENDING';
+const SET_LOGIN_SUCCESS = 'SET_LOGIN_SUCCESS';
+const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
 
 export function searchGifs(searchTerm = null) {
     console.log("Searched term", searchTerm)
@@ -30,3 +33,5 @@ export function closeModal() {
     type: CLOSE_MODAL
   }
 }
+
+
