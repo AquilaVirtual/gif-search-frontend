@@ -1,131 +1,65 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { login } from '../../actions';
-//import Button from '../Misc/button';
+import { login } from '../../redux/reducer';
+import './LoginForm.css';
 
-const StyledLogin = styled.div`
-  display: flex;
-  margin-top: 20px;
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  input {
-    width: 340px;
-    height: 40px;
-    margin-top: 15px;
-    padding: 8px;
-    margin-left: 10px;
-    border-radius: 2px;
-    border: 1px solid #bfbfc0;
-    font-size: 1.4rem;
-    letter-spacing: 1px;    
-    &:focus {
-      outline: none;
-    }
-  }
-  button {
-    margin-left: 10px;
-  }
-`;
+class LoginForm extends Component {
 
-class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      email: '',
-      password: '',
-    };
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.props.login({
-      email: this.state.email.trim().toLowerCase(),
-      password: this.state.password.trim(),
-    }, this.props.history);
-    this.setState({
-      email: '',
-      password: '',
-    });
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+    this.state = {};
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   render() {
+    let {email, password} = this.state;
+    let {isLoginPending, isLoginSuccess, loginError} = this.props;
     return (
-      <StyledLogin>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type='email'
-            name='email'
-            placeholder='Email (required)...'
-            maxLength='30'
-            required
-            onChange={this.handleChange}
-            value={this.state.email}
-          />
-          <input
-            type='password'
-            name='password'
-            placeholder='Password (required)...'
-            maxLength='15'
-            required
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-          <button type='submit' backgroundColor='rgb(34, 170, 61)' title='Login' />
-        </form>
-      </StyledLogin>
-    );
+      <form name="loginForm" onSubmit={this.onSubmit}>
+        <div className="form-group-collection">
+          <div className="form-group">
+            <label>Email</label>
+            <input type="email" name="email" onChange={e => this.setState({email: e.target.value})} value={email}/>
+          </div>
+
+          <div className="form-group">
+            <label>Password</label>
+            <input type="password" name="password" onChange={e => this.setState({password: e.target.value})} value={password}/>
+          </div>
+        </div>
+
+        <input type="submit" value="Login" />
+
+        { isLoginPending && <div>Please wait...</div> }
+        { isLoginSuccess && <div>Success.</div> }
+        { loginError && <div>{loginError.message}</div> }
+      </form>
+    )
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    let { email, password } = this.state;
+    this.props.login(email, password);
+    this.setState({
+      email: '',
+      password: ''
+    });
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
+    isLoginPending: state.isLoginPending,
+    isLoginSuccess: state.isLoginSuccess,
+    loginError: state.loginError
   };
-};
+}
 
-export default connect(mapStateToProps)(Login);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (email, password) => dispatch(login(email, password))
+  };
+}
 
-// import React from 'react';
-// import { Field, reduxForm } from 'redux-form';
-
-// class Login extends React.Component {
-//   handleFormSubmit = (values) => {
-//     console.log(values);
-//   };
-
-//   render() {
-//     return(
-//       <div className="container">
-//         <div className="col-md-6 col-md-offset-3">
-//           <h2 className="text-center">Log In</h2>
-//           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
-//             <fieldset className="form-group">
-//               <label>Email</label>
-//               <Field name="email" component="input" className="form-control" type="text" placeholder="Email"/>
-//             </fieldset>
-
-//             <fieldset className="form-group">
-//               <label>Password</label>
-//               <Field name="password" component="input" className="form-control" type="password" placeholder="Password"/>
-//             </fieldset>
-
-//             <button action="submit" className="btn btn-primary">Sign In</button>
-//           </form>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default reduxForm({
-//   form: 'login'
-// })(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
