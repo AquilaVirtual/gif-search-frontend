@@ -4,7 +4,7 @@ const initialState = {
     clickedGif: null,
     modalIsOpen: false
 }
-export  default function ModalReducer(state = initialState, action) {
+export  default function modalReducer(state = initialState, action) {
     console.log("State in Modal reducer", state)
     switch(action.type) {
         case OPEN_MODAL:

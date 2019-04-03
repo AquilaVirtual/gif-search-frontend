@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import GifReducer from './gifs';
-import ModalReducer from './modal';
+import gifReducer from './gifs';
+import modalReducer from './modal';
+import loginStatusReducer from './loginStatus';
 import { routerReducer } from 'react-router-redux';
 import { reducer as FormReducer } from 'redux-form';
 
 const rootReducer = combineReducers({
-    gifs: GifReducer,
-    modal: ModalReducer,
+    gifs: gifReducer,
+    modal: modalReducer,
+    login: loginStatusReducer,
     router: routerReducer,
     form: FormReducer,
 });
