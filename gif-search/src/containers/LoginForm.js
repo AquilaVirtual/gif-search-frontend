@@ -9,7 +9,15 @@ class LoginForm extends Component {
     this.state = {};
     this.onSubmit = this.onSubmit.bind(this);
   }
-
+  onSubmit(e) {
+    e.preventDefault();
+    let { email, password } = this.state;
+    this.props.login(email, password);
+    this.setState({
+      email: "",
+      password: ""
+    });
+  }
   render() {
     let { email, password } = this.state;
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
@@ -46,15 +54,6 @@ class LoginForm extends Component {
     );
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-    let { email, password } = this.state;
-    this.props.login(email, password);
-    this.setState({
-      email: "",
-      password: ""
-    });
-  }
 }
 
 const mapStateToProps = state => {
