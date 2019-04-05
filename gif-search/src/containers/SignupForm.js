@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { signup } from "../actions";
 
 const validate = values => {
   const errors = {};
