@@ -1,15 +1,11 @@
 import request from 'superagent';
+
+import {SEARCH_GIFS, OPEN_MODAL, CLOSE_MODAL, SET_LOGIN_ERROR, SET_LOGIN_PENDING, SET_LOGIN_SUCCESS } from "../constants/constants";
+
 //No need to hide API key; this is a public key
 const API_URL = 'http://api.giphy.com/v1/gifs/search?q=';
 const API_KEY = '&api_key=dc6zaTOxFJmzC';
 
-export const OPEN_MODAL = "OPEN_MODAL";
-export const CLOSE_MODAL = "CLOSE_MODAL";
-export const  SEARCH_GIFS = "SEARCH_GIFS";
-export const SET_LOGIN_PENDING = 'SET_LOGIN_PENDING';
-export const SET_LOGIN_SUCCESS = 'SET_LOGIN_SUCCESS';
-export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
-export const LOGIN = 'LOGIN';
 
 export function searchGifs(searchTerm = null) {
     console.log("Searched term", searchTerm)
@@ -74,14 +70,14 @@ export function login(email, password) {
   //   dispatch(setLoginPending(true));
   //   dispatch(setLoginSuccess(false));
   //   dispatch(setLoginError(null));
-  //  //
-  //   callLoginApi(email, password, error => {
-  //     dispatch(setLoginPending(false));
-  //     if (!error) {
-  //       dispatch(setLoginSuccess(true));
-  //     } else {
-  //       dispatch(setLoginError(error));
-  //     }
-  //   });
-  // }
+   //
+    // callLoginApi(email, password, error => {
+    //   dispatch(setLoginPending(false));
+    //   if (!error) {
+    //     dispatch(setLoginSuccess(true));
+    //   } else {
+    //     dispatch(setLoginError(error));
+    //   }
+    // });
+  //}
 }

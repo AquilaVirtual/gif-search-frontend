@@ -1,4 +1,4 @@
-import { SET_LOGIN_PENDING, SET_LOGIN_SUCCESS, SET_LOGIN_ERROR } from "../actions"
+import { SET_LOGIN_PENDING, SET_LOGIN_SUCCESS, SET_LOGIN_ERROR } from "../constants/constants"
 
 const initialState = {
     isLoginSuccess: false,

@@ -1,4 +1,4 @@
-import { SEARCH_GIFS } from "../actions";
+import { SEARCH_GIFS } from "../constants/constants";
 
 const initialState = {
   data: []
