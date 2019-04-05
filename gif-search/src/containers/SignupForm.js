@@ -46,12 +46,13 @@ class signupForm extends Component {
     let { isSignUpPending, isSignUpSuccess, SignUpError } = this.props;
     return (
       <form name="signupForm" onSubmit={this.onSubmit}>
-        <div className="form-group-collection">
         <div className="form-group">
-            <label>Password</label>
+        <div className="form-group">
+            <label>Name</label>
             <input
               type="text"
               name="name"
+              placeholder="Full name"
               onChange={e => this.setState({ name: e.target.value })}
               value={name}
             />
@@ -61,6 +62,7 @@ class signupForm extends Component {
             <input
               type="email"
               name="email"
+              placeholder="Email"
               onChange={e => this.setState({ email: e.target.value })}
               value={email}
             />
@@ -70,13 +72,14 @@ class signupForm extends Component {
             <input
               type="password"
               name="password"
+              placeholder="Password"
               onChange={e => this.setState({ password: e.target.value })}
               value={password}
             />
           </div>
         </div>
 
-        <input type="submit" value="Login" />
+        <input type="submit" value="Sign Up" />
 
         {isSignUpPending && <div>Please wait...</div>}
         {isSignUpSuccess && <div>Success.</div>}

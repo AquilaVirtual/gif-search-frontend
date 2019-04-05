@@ -29,6 +29,7 @@ class LoginForm extends Component {
             <input
               type="email"
               name="email"
+              placeholder="Email"
               onChange={e => this.setState({ email: e.target.value })}
               value={email}
             />
@@ -39,6 +40,7 @@ class LoginForm extends Component {
             <input
               type="password"
               name="password"
+              placeholder="Password"
               onChange={e => this.setState({ password: e.target.value })}
               value={password}
             />
