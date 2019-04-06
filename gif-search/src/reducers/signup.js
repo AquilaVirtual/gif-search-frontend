@@ -6,4 +6,12 @@ const initialState = {
     password: null
 }
 export  default function signupReducer(state = initialState, action) {
+    switch(action.type) {
+     case SIGN_UP:
+     return {
+         ...state, user: action.payload.user
+     }
+     default:
+     return state;
+    }
 }
