@@ -55,7 +55,6 @@ class LoginForm extends Component {
       </form>
     );
   }
-
 }
 
 const mapStateToProps = state => {

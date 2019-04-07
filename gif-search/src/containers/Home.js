@@ -18,7 +18,7 @@ class Home extends Component {
         <GifList
           gifs={this.props.gifs}
           onGifClick={clickedGif =>
-            this.props.actions.openModal( {clickedGif} )
+            this.props.actions.openModal({ clickedGif })
           }
         />
         <GifModal

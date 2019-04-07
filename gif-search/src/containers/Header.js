@@ -1,6 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
   render() {
@@ -8,16 +8,22 @@ class Header extends React.Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link to="/" className="navbar-brand">ReactGifs</Link>
+            <Link to="/" className="navbar-brand">
+              ReactGifs
+            </Link>
           </div>
-           <ul className="nav navbar-nav navbar-right">
-             <li className="nav-item">
-               <Link className="nav-link" to="/login">Login</Link>
-             </li>
-             <li className="nav-item">
-               <Link className="nav-link" to="/signup">Sign Up</Link>
-             </li>
-           </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">
+                Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/signup">
+                Sign Up
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     );
@@ -25,7 +31,7 @@ class Header extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {};
 }
 
 export default connect(mapStateToProps)(Header);

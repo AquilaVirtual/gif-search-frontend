@@ -8,7 +8,7 @@ const validate = values => {
   if (!values.email) {
     errors.email = "Please enter an email.";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
+    errors.email = "Invalid email address";
   }
 
   if (!values.password) {
@@ -19,8 +19,8 @@ const validate = values => {
     errors.passwordConfirmation = "Please enter a password confirmation.";
   }
 
-  if (values.password !== values.passwordConfirmation ) {
-    errors.password = 'Passwords do not match';
+  if (values.password !== values.passwordConfirmation) {
+    errors.password = "Passwords do not match";
   }
 
   return errors;
@@ -34,7 +34,7 @@ class signupForm extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    let {name, email, password } = this.state;
+    let { name, email, password } = this.state;
     this.props.signup(name, email, password);
     this.setState({
       email: "",
@@ -47,7 +47,7 @@ class signupForm extends Component {
     return (
       <form name="signupForm" onSubmit={this.onSubmit}>
         <div className="form-group">
-        <div className="form-group">
+          <div className="form-group">
             <label>Name</label>
             <input
               type="text"
@@ -87,7 +87,6 @@ class signupForm extends Component {
       </form>
     );
   }
-
 }
 
 const mapStateToProps = state => {
@@ -101,7 +100,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     signup: (name, email, password) => dispatch(signup(name, email, password))
-
   };
 };
 
